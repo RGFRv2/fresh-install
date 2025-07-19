@@ -1,3 +1,5 @@
+*(GPT pour le Readme)*
+
 # 📦 Installation Automatisée avec UniGet
 
 Ce projet contient une liste d’applications à installer via UniGet, un gestionnaire de paquets Windows utilisant Winget et d’autres sources.
