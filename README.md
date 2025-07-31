@@ -40,7 +40,22 @@ Pour installer toutes les applications listées dans le fichier, exécutez la co
 
 ## Applications à installer en dehors de Winget
 
-- VisualStudioCode
 - Aegisub
-- Thunderbird -> Utiliser BetterBird ?
+- AMD Adrenaline Software (Drivers AMD)
+- Filezilla
 - iCloud via le Windows Store
+- Python
+- Thunderbird -> Utiliser BetterBird ?
+- Uninstalr
+- Visual Studio Code
+
+## Packages optionnels Winget
+
+```powershell
+winget install -e --id Malwarebytes.Malwarebytes
+# Passage sur Brave
+winget install -e --id Google.Chrome
+winget install -e --id Philips.HueSync
+winget install -e --id Parsec.Parsec
+winget install -e --id Insomnia.Insomnia
+```
