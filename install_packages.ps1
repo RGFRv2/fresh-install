@@ -21,6 +21,7 @@ winget install -e --id Microsoft.PowerShel
 winget install -e --id Mobatek.MobaXterm
 winget install -e --id Postman.Postman
 winget install -e --id Termius.Termius
+winget install -e --id mitmproxy.mitmproxy
 
 # 🛡️ Sécurité & VPN
 winget install -e --id Bitwarden.Bitwarden
