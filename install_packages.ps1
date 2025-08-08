@@ -22,6 +22,7 @@ winget install -e --id Mobatek.MobaXterm
 winget install -e --id Postman.Postman
 winget install -e --id Termius.Termius
 winget install -e --id mitmproxy.mitmproxy
+winget install -e --id Anysphere.Cursor
 
 # 🛡️ Sécurité & VPN
 winget install -e --id Bitwarden.Bitwarden
@@ -36,6 +37,7 @@ winget install -e --id PeterPawlowski.foobar2000
 winget install -e --id Spotify.Spotify
 winget install -e --id Streamlabs.Streamlabs
 winget install -e --id VideoLAN.VLC
+winget install -e --id Syncplay.Syncplay
 
 # 📤 Partage, capture et cloud
 winget install -e --id Google.GoogleDrive
