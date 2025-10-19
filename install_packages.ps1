@@ -23,6 +23,7 @@ winget install -e --id Postman.Postman
 winget install -e --id Termius.Termius
 winget install -e --id mitmproxy.mitmproxy
 winget install -e --id Anysphere.Cursor
+winget install -e --id Python.Python.3.14
 
 # 🛡️ Sécurité & VPN
 winget install -e --id Bitwarden.Bitwarden
