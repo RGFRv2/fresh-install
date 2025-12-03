@@ -1,0 +1,28 @@
+# --- System ---
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+alias copy='advcp -g' # Nécessite 'advcp' installé
+alias move='advmv -g' # Nécessite 'advmv' installé
+alias cls="clear"
+
+alias ll='ls -lh --color=auto'
+alias la='ls -A --color=auto'
+alias l='ls -lah --color=auto'
+alias ..='cd ..'
+alias ...='cd ../..'
+
+# --- Fonction : Créer un dossier et aller dedans ---
+mkcd() { mkdir -p "$1" && cd "$1"; }
+
+# --- Shell ---
+alias fp="fish --private"
+
+# --- Outils ---
+alias py='python3'
+alias grep='grep --color=auto'
+alias h='history | grep' # Chercher dans l'historique
+alias scp="noglob scp"   # Fix pour zsh et scp
+alias remove_title="mkvpropedit --delete title"
+alias count_files='for t in files links directories; do echo `find . -type ${t:0:1} | wc -l` $t; done 2> /dev/null'
+alias mux="/usr/bin/mkvmerge --default-duration 0:24000/1001p -o"

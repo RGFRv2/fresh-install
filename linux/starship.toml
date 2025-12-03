@@ -1,0 +1,11 @@
+# ~/.config/starship.toml
+
+# C'est cette ligne qui dit à Starship d'afficher l'heure à droite
+right_format = "$time"
+
+[time]
+disabled = false
+style = "yellow"
+format = '[$time]($style)'
+# J'ai ajouté les crochets [] pour que ça ressemble exactement à ta capture
+time_format = '%D | %T'

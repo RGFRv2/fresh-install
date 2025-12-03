@@ -11,15 +11,15 @@ winget install -e --id WinMerge.WinMerge
 
 # 🌐 Navigateurs et Internet
 winget install -e --id Brave.Brave
-winget install -e --id Mozilla.Firefox --custom "--locale en-GB"
+winget install -e --id Mozilla.Firefox
 
 # 🧑‍💻 Développement et terminal
 winget install -e --id DBBrowserForSQLite.DBBrowserForSQLite
 winget install -e --id Git.Git
 winget install -e --id HeidiSQL.HeidiSQL
-winget install -e --id Microsoft.PowerShel
+winget install -e --id Microsoft.PowerShell
 winget install -e --id Mobatek.MobaXterm
-winget install -e --id Postman.Postman
+winget install -e --id Bruno.Bruno
 winget install -e --id Termius.Termius
 winget install -e --id mitmproxy.mitmproxy
 winget install -e --id Anysphere.Cursor
@@ -45,6 +45,8 @@ winget install -e --id ShareX.ShareX
 
 # 📩 Communication
 winget install -e --id Discord.Discord
+winget install -e --id Discord.Discord.Canary
+winget install -e --id Discord.Discord.PTB
 winget install -e --id TeamViewer.TeamViewer
 winget install -e --id Telegram.TelegramDesktop
 
@@ -66,5 +68,4 @@ winget install -e --id Microsoft.WindowsTerminal
 winget install -e --id Notepad++.Notepad++
 
 # 🎨 Customisation
-winget install -e --id MicaForEveryone.MicaForEveryone
 winget install -e --id RamenSoftware.Windhawk
