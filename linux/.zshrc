@@ -44,7 +44,7 @@ bindkey "^[[1;5D" backward-word
 
 # --- 6. CONFIGURATIONS ---
 # FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+FZF_CTRL_R_COMMAND= FZF_ALT_C_COMMAND= source <(fzf --zsh)
 
 # Aliases
 [ -f ~/.aliases ] && source ~/.aliases

@@ -21,6 +21,11 @@ deps=(
     gnupg2
     lsb-release
     software-properties-common
+    aria2
+    lm-sensors
+    net-tools
+    nfs-common
+    nut
 )
 
 # Outils utilisateurs demandés
@@ -28,7 +33,6 @@ pkgs=(
     zsh
     htop
     btop
-    net-tools
     neovim
     tmux
     fastfetch
@@ -37,9 +41,12 @@ pkgs=(
     p7zip-full
     unrar-free
     ffmpeg
-    nfs-common
     rclone
     fish
+    fzf
+    python3-pip
+    python3-venv
+
 )
 
 # --- 2. INSTALLATION DES PAQUETS APT ---
@@ -68,7 +75,26 @@ sudo apt update
 sudo apt install mkvtoolnix -y
 
 
-# --- 4. CONFIGURATION DE ZSH ---
+
+# --- 4. INSTALLATION DOCKER ---
+
+echo "[INSTALLATION DOCKER]"
+
+# Ajout de la clé GPG Docker
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+# Ajout du dépôt Docker
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Installation
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
+
+# Activation du service
+sudo systemctl enable docker
+
+
+# --- 5. CONFIGURATION DE ZSH ---
 
 echo "[CONFIGURATION DU SHELL PAR DEFAUT]"
 my_user=$(whoami)
@@ -89,7 +115,7 @@ else
 fi
 
 
-# --- 5. INSTALLATION DE STARSHIP ---
+# --- 6. INSTALLATION DE STARSHIP ---
 
 if ! command -v starship &> /dev/null; then
     echo "[INSTALLATION DE STARSHIP]"
@@ -99,7 +125,7 @@ else
 fi
 
 
-# --- 6. COPIE DES FICHIERS DE CONFIGURATION ---
+# --- 7. COPIE DES FICHIERS DE CONFIGURATION ---
 
 echo "[COPIE DES CONFIGURATIONS]"
 
@@ -125,7 +151,31 @@ mkdir -p ~/.config
 copy_config "$SCRIPT_DIR/starship.toml" ~/.config/starship.toml
 
 
-# --- 7. FIN ---
+
+# --- 8. CONFIGURATION NUT ---
+
+echo "[CONFIGURATION NUT]"
+
+if [ -f "$SCRIPT_DIR/nut/nut.conf" ] && [ -f "$SCRIPT_DIR/nut/upsmon.conf" ]; then
+    echo "> Copie de la configuration NUT..."
+    sudo cp "$SCRIPT_DIR/nut/nut.conf" /etc/nut/nut.conf
+    sudo cp "$SCRIPT_DIR/nut/upsmon.conf" /etc/nut/upsmon.conf
+    
+    echo "> Application des permissions..."
+    sudo chown root:nut /etc/nut/nut.conf /etc/nut/upsmon.conf
+    sudo chmod 640 /etc/nut/nut.conf
+    sudo chmod 640 /etc/nut/upsmon.conf
+    
+    echo "> Redémarrage du service nut-client..."
+    sudo systemctl restart nut-client
+    
+    echo "> Configuration NUT terminée."
+else
+    echo "> ERREUR: Fichiers de configuration NUT introuvables dans le dossier parent."
+fi
+
+
+# --- 9. FIN ---
 echo "=========================================="
 echo "      INSTALLATION TERMINÉE"
 echo "=========================================="
