@@ -39,7 +39,7 @@ pkgs=(
     unzip
     zip
     p7zip-full
-    unrar-free
+    unrar
     ffmpeg
     rclone
     fish
